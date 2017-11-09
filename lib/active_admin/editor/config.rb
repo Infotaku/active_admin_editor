@@ -22,6 +22,9 @@ module ActiveAdmin
       # The s3 bucket to store uploads.
       attr_accessor :s3_bucket
 
+      # The s3 region to store uploads.
+      attr_accessor :s3_region
+
       # Base directory to store the uploaded files in the bucket. Defaults to
       # 'uploads'.
       attr_accessor :storage_dir
@@ -44,7 +47,8 @@ module ActiveAdmin
       def s3_configured?
         aws_access_key_id.present? &&
           aws_access_secret.present? &&
-          s3_bucket.present?
+            s3_bucket.present? &&
+            s3_region.present?
       end
 
       def parser_rules

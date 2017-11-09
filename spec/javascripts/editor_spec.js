@@ -91,8 +91,9 @@ describe('Editor', function() {
       this.xhr.prototype.open = sinon.stub()
       this.xhr.prototype.send = sinon.stub()
       this.config.s3_bucket = 'bucket'
+      this.config.s3_region = 'region'
       xhr = this.editor.upload(sinon.stub(), function() {})
-      expect(xhr.open).to.have.been.calledWith('POST', 'https://bucket.s3.amazonaws.com', true)
+      expect(xhr.open).to.have.been.calledWith('POST', 'https://bucket.region.amazonaws.com', true)
     })
 
     it('sends the request', function() {
@@ -106,6 +107,7 @@ describe('Editor', function() {
         this.xhr.prototype.open = sinon.stub()
         this.xhr.prototype.send = sinon.stub()
         this.config.s3_bucket = 'bucket'
+        this.config.s3_region = 'region'
         xhr = this.editor.upload(sinon.stub(), function(location) {
           expect(location).to.eq('foo')
           done()
@@ -122,6 +124,7 @@ describe('Editor', function() {
         this.xhr.prototype.open = sinon.stub()
         this.xhr.prototype.send = sinon.stub()
         this.config.s3_bucket = 'bucket'
+        this.config.s3_region = 'region'
         alert = sinon.stub()
         xhr = this.editor.upload(sinon.stub(), function() {})
         xhr.readyState = 4
@@ -143,6 +146,7 @@ describe('Editor', function() {
         this.xhr.prototype.send = sinon.stub()
 
         this.config.s3_bucket         = 'bucket'
+        this.config.s3_region = 'region'
         this.config.storage_dir       = 'uploads'
         this.config.aws_access_key_id = 'access key'
 

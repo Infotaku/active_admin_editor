@@ -128,6 +128,7 @@ ActiveAdmin.setup do |config|
   #   config.register_javascript 'my_javascript.js'
 
   config.editor.s3_bucket = ENV['S3_BUCKET']
+  config.editor.s3_region = ENV['S3_REGION']
   config.editor.aws_access_key_id = ENV['AWS_ACCESS_KEY_ID']
   config.editor.aws_access_secret = ENV['AWS_ACCESS_SECRET']
   config.editor.parser_rules['tags']['strike'] = {

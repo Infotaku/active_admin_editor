@@ -132,7 +132,7 @@
       }
     }
 
-    xhr.open('POST', 'https://' + config.s3_bucket + '.s3.amazonaws.com', true)
+    xhr.open('POST', 'https://' + config.s3_bucket + '.' + config.s3_region + '.amazonaws.com', true)
     xhr.send(fd)
 
     return xhr

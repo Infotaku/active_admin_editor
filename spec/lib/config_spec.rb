@@ -7,6 +7,7 @@ describe ActiveAdmin::Editor.configuration do
     configuration.aws_access_key_id = nil
     configuration.aws_access_secret = nil
     configuration.s3_bucket = nil
+    configuration.s3_region = nil
     configuration.storage_dir = 'uploads'
   end
 
@@ -14,6 +15,7 @@ describe ActiveAdmin::Editor.configuration do
     its(:aws_access_key_id) { should be_nil }
     its(:aws_access_secret) { should be_nil }
     its(:s3_bucket)         { should be_nil }
+    its(:s3_region)         { should be_nil }
     its(:storage_dir)       { should eq 'uploads' }
   end
   
@@ -32,6 +34,7 @@ describe ActiveAdmin::Editor.configuration do
         configuration.aws_access_key_id = 'foo'
         configuration.aws_access_secret = 'bar'
         configuration.s3_bucket = 'bucket'
+        configuration.s3_region = 'region'
       end
 
       it { should be_true }

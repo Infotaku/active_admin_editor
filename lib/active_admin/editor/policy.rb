@@ -44,6 +44,7 @@ module ActiveAdmin
         { :expiration => Time.now.utc + 1.hour,
           :conditions => [
             { :bucket => bucket },
+            { :region => region },
             [ 'starts-with', '$key', storage_dir ],
             { :acl => 'public-read' },
             [ 'starts-with', '$Content-Type', '' ],
@@ -68,6 +69,10 @@ module ActiveAdmin
 
       def bucket
         configuration.s3_bucket
+      end
+
+      def region
+        configuration.s3_region
       end
 
       def secret

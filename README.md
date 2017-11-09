@@ -56,6 +56,7 @@ was installed when you ran `rails g active_admin:editor`.
 ```ruby
 ActiveAdmin::Editor.configure do |config|
   config.s3_bucket = '<your bucket>'
+  config.s3_region = '<your bucket region>'
   config.aws_access_key_id = '<your aws access key>'
   config.aws_access_secret = '<your aws secret>'
   # config.storage_dir = 'uploads'
@@ -91,6 +92,7 @@ ActiveAdmin.setup do |config|
   # ...
   config.editor.aws_access_key_id = '<your aws access key>'
   config.editor.s3_bucket = 'bucket'
+  config.editor.s3_region = 'region'
 end
 ```
 
