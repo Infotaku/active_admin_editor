@@ -44,7 +44,6 @@ module ActiveAdmin
         { :expiration => Time.now.utc + 1.hour,
           :conditions => [
             { :bucket => bucket },
-            { :region => region },
             [ 'starts-with', '$key', storage_dir ],
             { :acl => 'public-read' },
             [ 'starts-with', '$Content-Type', '' ],
